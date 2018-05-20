@@ -2,14 +2,24 @@ SPL ZooTicun {
 
 	Features = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal, Categoria, CategoriaDAO, Conexion, ConexionAntigua, Config, ConfigAntigua}
 
-	Deltas = {dAdminAnimales, dAgregarAnimal, dModificarAnimal, dEliminarAnimal, dAnimal, dCategoriaDAO, dConexion, dConexionAntigua, dConfig, dConfigAntigua}
+	Deltas = {dAdminAnimales, dAgregarAnimal, dModificarAnimal, dEliminarAnimal, dAnimal, dCategoriaDAO, dConexion, dConexionAntigua, dConfig, dConfigAntigua, dCategoria}
 
 	Constraints {
 		// Put boolean expression representation of the feature model here. 
 	}
 
 	Partitions {
-		// Put mapping between deltas and feature configurations here. 
+		{dAdminAnimales} when (AdminAnimales);
+		{dAdminAnimales, dAgregarAnimal, dAnimal} when (AgregarAnimal);
+		{dAdminAnimales, dModificarAnimal, dAnimal} when (ModificarAnimal);
+		{dAdminAnimales, dEliminarAnimal, dAnimal} when (EliminarAnimal);
+		
+		{dCategoria} when (Categoria);
+		{dCategoriaDAO} when (CategoriaDAO);
+		{dConexion} when (Conexion);
+		{dConexionAntigua}when (ConexionAntigua);
+		{dConfig} when (Config);
+		{dConfigAntigua} when (ConfigAntigua);
 	}
 
 	Products {

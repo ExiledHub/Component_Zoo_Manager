@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../bin/spls.xsd">
+	<spl name="ZooTicun">
+		<features>
+			<feature name ="AdminAnimales" />
+			<feature name ="AgregarAnimal" />
+			<feature name ="ModificarAnimal" />
+			<feature name ="EliminarAnimal" />
+			<feature name ="Categoria" />
+			<feature name ="CategoriaDAO" />
+			<feature name ="Conexion" />
+			<feature name ="ConexionAntigua" />
+			<feature name ="Config" />
+			<feature name ="ConfigAntigua" />
+		</features>
+		<configurations>
+		</configurations>
+		<deltas>
+			<partition>
+				<modul delta="dAdminAnimales" when="AdminAnimales
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdminAnimales" when="AgregarAnimal
+				" />
+				<modul delta="dAgregarAnimal" when="AgregarAnimal
+				" />
+				<modul delta="dAnimal" when="AgregarAnimal
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdminAnimales" when="ModificarAnimal
+				" />
+				<modul delta="dModificarAnimal" when="ModificarAnimal
+				" />
+				<modul delta="dAnimal" when="ModificarAnimal
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdminAnimales" when="EliminarAnimal
+				" />
+				<modul delta="dEliminarAnimal" when="EliminarAnimal
+				" />
+				<modul delta="dAnimal" when="EliminarAnimal
+				" />
+			</partition>
+			<partition>
+				<modul delta="dCategoria" when="Categoria
+				" />
+			</partition>
+			<partition>
+				<modul delta="dCategoriaDAO" when="CategoriaDAO
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConexion" when="Conexion
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConexionAntigua" when="ConexionAntigua
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConfig" when="Config
+				" />
+			</partition>
+			<partition>
+				<modul delta="dConfigAntigua" when="ConfigAntigua
+				" />
+			</partition>
+		</deltas>
+	</spl>
+</spls>
