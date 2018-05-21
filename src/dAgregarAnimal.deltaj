@@ -1,2 +1,39 @@
 delta dAgregarAnimal {
+	modifies org.pl.zooticun.AdminCategoria{
+		adds public void agregar(Enum type, String name, list<String> needs, String curiousData, String zone) {  
+			Categoria c = new Categoria();
+			c.setNombre(name);
+			c.setType(type);
+			c.setNeeds(needs);
+			c.setCData(curiousData);
+			c.setZone(zone);
+			catDao.agregar(c);
+		}
+	}
+	
+	modifies org.pl.eshopping.dto.CategoriaDAO{
+		adds public void agregar(Categoria c){  
+			try{ conn = Conexion.getConexion();
+				String query = "INSERT INTO categoria (name, type, needs, data, zone) values (?, ?, ?, ?, ?)";
+				ps = conn.prepareStatement(query);
+				ps.setString(1, c.getName()); ps.setString(2, c.getType()); ps.setString(3, c.getNeeds());
+				ps.setString(4, c.getCData()); ps.setString(5, c.getZone());
+				ps.executeUpdate();
+				}
+				catch (Exception e){
+					e.printStackTrace();
+				}
+				finally{
+					try{ conn.close(); 
+						
+					} 
+					catch (Exception e) { /* ignored */
+						
+					}
+					
+					}
+					
+					}
+					
+					}
 }
