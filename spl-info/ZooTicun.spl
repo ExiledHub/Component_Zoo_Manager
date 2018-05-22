@@ -1,28 +1,45 @@
 SPL ZooTicun {
 
-	Features = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal, Categoria, CategoriaDAO, Conexion, ConexionAntigua, Config, ConfigAntigua}
+	Features = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal,
+	Animal, AnimalDAO, Conexion, Config, Usuario, Visitor, Keeper, Administrator}
 
-	Deltas = {dAdminAnimales, dAgregarAnimal, dModificarAnimal, dEliminarAnimal, dAnimal, dCategoriaDAO, dConexion, dConexionAntigua, dConfig, dConfigAntigua, dCategoria}
+	Deltas = {dAdminAnimales, dAgregarAnimal, dModificarAnimal, dEliminarAnimal,
+	dAnimal, dAnimalDAO, dConexion, dConfig, dUsuario, dVisitor, dKeeper,
+	dAdministrator}
 
 	Constraints {
-		// Put boolean expression representation of the feature model here. 
+	// Put boolean expression representation of the feature model here. 
 	}
 
 	Partitions {
 		{dAdminAnimales} when (AdminAnimales);
+
 		{dAdminAnimales, dAgregarAnimal, dAnimal} when (AgregarAnimal);
+
 		{dAdminAnimales, dModificarAnimal, dAnimal} when (ModificarAnimal);
+
 		{dAdminAnimales, dEliminarAnimal, dAnimal} when (EliminarAnimal);
-		
-		{dCategoria} when (Categoria);
-		{dCategoriaDAO} when (CategoriaDAO);
+
+		{dAnimal} when (Animal);
+
+		{dAnimalDAO} when (AnimalDAO);
+
 		{dConexion} when (Conexion);
-		{dConexionAntigua}when (ConexionAntigua);
+
 		{dConfig} when (Config);
-		{dConfigAntigua} when (ConfigAntigua);
+		
+		{dUsuario} when (Usuario);
+		
+		{dUsuario, dVisitor} when (Visitor);
+		
+		{dUsuario, dKeeper} when (Keeper);
+		
+		{dUsuario, dAdministrator} when (Administrator);
+
+
 	}
 
 	Products {
-		// Put product definitions here. 
+	// Put product definitions here. 
 	}
 }

@@ -1,0 +1,26 @@
+delta dKeeper {
+	adds {
+		package org.pl.zooticun.dto;
+
+		public class Keeper extends Usuario {
+			private Administrator admin;
+			private String zone;
+
+			public Administrator getAdmin() {
+				return admin;
+			}
+
+			public void setAdministrator(Administrator a) {
+				this.admin = a;
+			}
+
+			public String getZone() {
+				return zone;
+			}
+
+			public void setZone(String z) {
+				this.zone = z;
+			}
+		}
+	}
+}

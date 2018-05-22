@@ -13,36 +13,45 @@ delta dAnimal {
 			public String getName() {
 				return name;
 			}
-			public void setNombre(String nombre) {
-				name = nombre;
+			public void setName(String n) {
+				this.name = n;
 			}
 			public Integer getId() {
 				return id;
 			}
+
 			public void setId(Integer id) {
 				this.id = id;
 			}
+
 			public Enum getType() {
 				return type;
 			}
+
 			public void setType(Enum type) {
 				this.type = type;
 			}
+
 			public list<Strings> getNeeds() {
 				return needs;
 			}
+
 			public void setNeeds(list<Strings> needs) {
 				this.needs = needs;
 			}
+
 			public String getCData() {
 				return cData;
 			}
+
 			public void setCData(String cData) {
 				this.cData = cData;
 			}
+
 			public String getZone() {
 				return zone;
 			}
+
 			public void setZone(String zone) {
 				this.zone = zone;
 			}

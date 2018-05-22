@@ -1,0 +1,27 @@
+delta dVisitor {
+	adds {
+		package org.pl.zooticun.dto;
+
+		public class Visitor extends Usuario {
+			private Date entry;
+			private Date leave;
+
+			public Date getEntry() {
+				return entry;
+			}
+
+			public void setEntry(Date d) {
+				this.entry = d;
+			}
+
+			public Date getLeave() {
+				return leave;
+			}
+
+			public void setLeave(Date d) {
+				this.leave = d;
+			}
+
+		}
+	}
+}

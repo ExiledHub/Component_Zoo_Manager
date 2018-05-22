@@ -1,0 +1,10 @@
+delta dAdministrator {
+	adds {
+		package org.pl.zooticun.dto;
+
+		public class Administrator extends Usuario {
+			List<Keeper> keepers = new ArrayList();
+			
+		}
+	}
+}
