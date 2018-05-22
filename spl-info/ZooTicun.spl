@@ -41,5 +41,6 @@ SPL ZooTicun {
 
 	Products {
 	// Put product definitions here. 
+	tienda = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal, Animal};
 	}
 }
