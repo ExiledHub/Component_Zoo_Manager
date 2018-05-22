@@ -1,39 +1,46 @@
 delta dAgregarAnimal {
-	modifies org.pl.zooticun.AdminCategoria{
-		adds public void agregar(Enum type, String name, list<String> needs, String curiousData, String zone) {  
-			Categoria c = new Categoria();
-			c.setNombre(name);
-			c.setType(type);
-			c.setNeeds(needs);
-			c.setCData(curiousData);
-			c.setZone(zone);
-			catDao.agregar(c);
+	modifies org.pl.zooticun.AdminAnimales {
+		adds public void agregar(Enum type, String name, list<String> needs, String
+			curiousData, String zone) {
+			Animal a = new Animal();
+			a.setNombre(name);
+			a.setType(type);
+			a.setNeeds(needs);
+			a.setCData(curiousData);
+			a.setZone(zone);
+			aniDao.agregar(a);
 		}
 	}
-	
-	modifies org.pl.eshopping.dto.CategoriaDAO{
-		adds public void agregar(Categoria c){  
-			try{ conn = Conexion.getConexion();
-				String query = "INSERT INTO categoria (name, type, needs, data, zone) values (?, ?, ?, ?, ?)";
+
+	modifies org.pl.zooticun.dto.AnimalDAO {
+		adds public void agregar(Animal a) {
+			try {
+				conn = Conexion.getConexion();
+				String query =
+				"INSERT INTO categoria (name, type, needs, data, zone) values (?, ?, ?, ?, ?)";
 				ps = conn.prepareStatement(query);
-				ps.setString(1, c.getName()); ps.setString(2, c.getType()); ps.setString(3, c.getNeeds());
-				ps.setString(4, c.getCData()); ps.setString(5, c.getZone());
+				ps.setString(1, a.getName());
+				ps.setString(2, a.getType());
+				ps.setString(3, a.getNeeds());
+				ps.setString(4, a.getCData());
+				ps.setString(5, a.getZone());
 				ps.executeUpdate();
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				try {
+					conn.close();
+
 				}
-				catch (Exception e){
-					e.printStackTrace();
+				catch(Exception e) { /* ignored */
+
 				}
-				finally{
-					try{ conn.close(); 
-						
-					} 
-					catch (Exception e) { /* ignored */
-						
-					}
-					
-					}
-					
-					}
-					
-					}
+
+			}
+
+		}
+
+	}
 }

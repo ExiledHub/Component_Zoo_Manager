@@ -1,14 +1,14 @@
-delta dCategoriaDAO {
+delta dAnimalDAO {
 	adds{
-		package org.pl.eshopping.dto;
+		package org.pl.zooticun.dto;
 		
 		import java.sql.Connection;
 		import java.sql.PreparedStatement;
 		import java.sql.ResultSet;
 		import java.sql.Statement;
-		import org.pl.eshopping.bd.Conexion;
+		import org.pl.zooticun.bd.Conexion;
 		
-		public class CategoriaDAO {
+		public class AnimalDAO {
 			Statement st = null;
 			PreparedStatement ps = null;
 			ResultSet rs = null;

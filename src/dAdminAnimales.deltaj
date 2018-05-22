@@ -2,12 +2,12 @@ delta dAdminAnimales {
 	adds {
 		package org.pl.zooticun;
 		
-		import org.pl.zooticun.Categoria;
-		import org.pl.zooticun.CategoriaDao;
+		import org.pl.zooticun.Animal;
+		import org.pl.zooticun.AnimalDAO;
 		
 		public class AdminAnimales{
-			CatergoriaDao catDao = new CategoriaDao();
-			Categoria cat = new Categoria();
+			AnimalDAO aniDao = new AnimalDAO();
+			Animal ani = new Animal();
 		}
 	}
 }

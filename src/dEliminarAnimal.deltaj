@@ -1,35 +1,36 @@
 delta dEliminarAnimal {
-		modifies org.pl.zooticun.AdminCategoria{
-		adds public void eliminar(Integer id) {  
-			Categoria c = new Categoria();
-			c.setId(id);
-			catDao.eliminar(c);
+	modifies org.pl.zooticun.AdminAnimales {
+		adds public void eliminar(Integer id) {
+			Animal a = new Animal();
+			a.setId(id);
+			aniDao.eliminar(a);
 		}
 	}
-	
-	modifies org.pl.eshopping.dto.CategoriaDAO{
-		adds public void eliminar(Categoria c){  
-			try{ 
+
+	modifies org.pl.zooticun.dto.AnimalDAO {
+		adds public void eliminar(Animal a) {
+			try {
 				conn = Conexion.getConexion();
 				String query = "DELETE FROM categoria WHERE id=?";
 				ps = conn.prepareStatement(query);
-				ps.setString(1, c.getId());
+				ps.setString(1, a.getId());
 				ps.executeUpdate();
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				try {
+					conn.close();
+
 				}
-				catch (Exception e){
-					e.printStackTrace();
+				catch(Exception e) { /* ignored */
+
 				}
-				finally{
-					try{ conn.close(); 
-						
-					} 
-					catch (Exception e) { /* ignored */
-						
-					}
-					
-					}
-					
-					}
-					
-					}
+
+			}
+
+		}
+
+	}
 }

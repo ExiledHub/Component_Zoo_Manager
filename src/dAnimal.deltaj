@@ -1,2 +1,51 @@
 delta dAnimal {
+	adds {
+		package org.pl.zooticun.dto;
+
+		public class Animal {
+			public Integer id;
+			public String name;
+			public Enum type;
+			public list<Strings> needs;
+			public String cData;
+			public String zone;
+
+			public String getName() {
+				return name;
+			}
+			public void setNombre(String nombre) {
+				name = nombre;
+			}
+			public Integer getId() {
+				return id;
+			}
+			public void setId(Integer id) {
+				this.id = id;
+			}
+			public Enum getType() {
+				return type;
+			}
+			public void setType(Enum type) {
+				this.type = type;
+			}
+			public list<Strings> getNeeds() {
+				return needs;
+			}
+			public void setNeeds(list<Strings> needs) {
+				this.needs = needs;
+			}
+			public String getCData() {
+				return cData;
+			}
+			public void setCData(String cData) {
+				this.cData = cData;
+			}
+			public String getZone() {
+				return zone;
+			}
+			public void setZone(String zone) {
+				this.zone = zone;
+			}
+		}
+	}
 }
