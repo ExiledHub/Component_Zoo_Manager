@@ -17,7 +17,7 @@ delta dAgregarAnimal {
 			try {
 				conn = Conexion.getConexion();
 				String query =
-				"INSERT INTO categoria (name, type, needs, data, zone) values (?, ?, ?, ?, ?)";
+				"INSERT INTO animal (name, type, needs, data, zone) values (?, ?, ?, ?, ?)";
 				ps = conn.prepareStatement(query);
 				ps.setString(1, a.getName());
 				ps.setString(2, a.getType());

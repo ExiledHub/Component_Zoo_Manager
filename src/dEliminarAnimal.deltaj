@@ -11,7 +11,7 @@ delta dEliminarAnimal {
 		adds public void eliminar(Animal a) {
 			try {
 				conn = Conexion.getConexion();
-				String query = "DELETE FROM categoria WHERE id=?";
+				String query = "DELETE FROM animal WHERE id=?";
 				ps = conn.prepareStatement(query);
 				ps.setString(1, a.getId());
 				ps.executeUpdate();

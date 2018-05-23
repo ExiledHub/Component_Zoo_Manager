@@ -1,0 +1,15 @@
+delta dRemoverKeeper {
+	modifies org.pl.zooticun.Administrator {
+		adds public void removerKeeper(String name) {
+			Keeper toRemove;
+			for(int i = 0;
+				i < keepers.size();
+				i ++) {
+				if(keepers.get(i).getName().equals(name)) {
+					keepers.remove(i);
+					break;
+				}
+			}
+		}
+	}
+}

@@ -18,7 +18,7 @@ delta dModificarAnimal {
 			try {
 				conn = Conexion.getConexion();
 				String query =
-				"UPDATE categoria set name=?, type=?, needs=?, cData=?, zone=? WHERE id=?";
+				"UPDATE animal set name=?, type=?, needs=?, cData=?, zone=? WHERE id=?";
 				ps = conn.prepareStatement(query);
 				ps.setString(1, a.getName());
 				ps.setString(2, a.getType());

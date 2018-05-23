@@ -1,11 +1,12 @@
 SPL ZooTicun {
 
 	Features = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal,
-	Animal, AnimalDAO, Conexion, Config, Usuario, Visitor, Keeper, Administrator}
+	Animal, AnimalDAO, Conexion, Config, Usuario, Visitor, Keeper, Administrator,
+	AgregarKeeper, RemoverKeeper, ModificarZone}
 
 	Deltas = {dAdminAnimales, dAgregarAnimal, dModificarAnimal, dEliminarAnimal,
 	dAnimal, dAnimalDAO, dConexion, dConfig, dUsuario, dVisitor, dKeeper,
-	dAdministrator}
+	dAdministrator, dAgregarKeeper, dRemoverKeeper, dModificarZone}
 
 	Constraints {
 	// Put boolean expression representation of the feature model here. 
@@ -20,6 +21,12 @@ SPL ZooTicun {
 
 		{dAdminAnimales, dEliminarAnimal, dAnimal} when (EliminarAnimal);
 
+		{dAdministrator, dKeeper, dAgregarKeeper} when (AgregarKeeper);
+
+		{dAdministrator, dKeeper, dRemoverKeeper} when (RemoverKeeper);
+
+		{dAdministrator, dKeeper, dModificarZone} when (ModificarZone);
+
 		{dAnimal} when (Animal);
 
 		{dAnimalDAO} when (AnimalDAO);
@@ -27,13 +34,13 @@ SPL ZooTicun {
 		{dConexion} when (Conexion);
 
 		{dConfig} when (Config);
-		
+
 		{dUsuario} when (Usuario);
-		
+
 		{dUsuario, dVisitor} when (Visitor);
-		
+
 		{dUsuario, dKeeper} when (Keeper);
-		
+
 		{dUsuario, dAdministrator} when (Administrator);
 
 
@@ -41,6 +48,11 @@ SPL ZooTicun {
 
 	Products {
 	// Put product definitions here. 
-	tienda = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal, Animal};
+		Animal = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal,
+		Animal};
+
+		Administrator = {Administrator, AgregarKeeper, RemoverKeeper, ModificarZone,
+		Keeper};
+	
 	}
 }

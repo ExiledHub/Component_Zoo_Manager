@@ -1,0 +1,7 @@
+delta dAgregarKeeper {
+	modifies org.pl.zooticun.Administrator {
+		adds public void agregarKeeper(Keeper k) {
+			keepers.add(k);
+		}
+	}
+}

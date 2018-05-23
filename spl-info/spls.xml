@@ -6,12 +6,17 @@
 			<feature name ="AgregarAnimal" />
 			<feature name ="ModificarAnimal" />
 			<feature name ="EliminarAnimal" />
-			<feature name ="Categoria" />
-			<feature name ="CategoriaDAO" />
+			<feature name ="Animal" />
+			<feature name ="AnimalDAO" />
 			<feature name ="Conexion" />
-			<feature name ="ConexionAntigua" />
 			<feature name ="Config" />
-			<feature name ="ConfigAntigua" />
+			<feature name ="Usuario" />
+			<feature name ="Visitor" />
+			<feature name ="Keeper" />
+			<feature name ="Administrator" />
+			<feature name ="AgregarKeeper" />
+			<feature name ="RemoverKeeper" />
+			<feature name ="ModificarZone" />
 		</features>
 		<configurations>
 		</configurations>
@@ -45,11 +50,35 @@
 				" />
 			</partition>
 			<partition>
-				<modul delta="dCategoria" when="Categoria
+				<modul delta="dAdministrator" when="AgregarKeeper
+				" />
+				<modul delta="dKeeper" when="AgregarKeeper
+				" />
+				<modul delta="dAgregarKeeper" when="AgregarKeeper
 				" />
 			</partition>
 			<partition>
-				<modul delta="dCategoriaDAO" when="CategoriaDAO
+				<modul delta="dAdministrator" when="RemoverKeeper
+				" />
+				<modul delta="dKeeper" when="RemoverKeeper
+				" />
+				<modul delta="dRemoverKeeper" when="RemoverKeeper
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAdministrator" when="ModificarZone
+				" />
+				<modul delta="dKeeper" when="ModificarZone
+				" />
+				<modul delta="dModificarZone" when="ModificarZone
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAnimal" when="Animal
+				" />
+			</partition>
+			<partition>
+				<modul delta="dAnimalDAO" when="AnimalDAO
 				" />
 			</partition>
 			<partition>
@@ -57,15 +86,29 @@
 				" />
 			</partition>
 			<partition>
-				<modul delta="dConexionAntigua" when="ConexionAntigua
-				" />
-			</partition>
-			<partition>
 				<modul delta="dConfig" when="Config
 				" />
 			</partition>
 			<partition>
-				<modul delta="dConfigAntigua" when="ConfigAntigua
+				<modul delta="dUsuario" when="Usuario
+				" />
+			</partition>
+			<partition>
+				<modul delta="dUsuario" when="Visitor
+				" />
+				<modul delta="dVisitor" when="Visitor
+				" />
+			</partition>
+			<partition>
+				<modul delta="dUsuario" when="Keeper
+				" />
+				<modul delta="dKeeper" when="Keeper
+				" />
+			</partition>
+			<partition>
+				<modul delta="dUsuario" when="Administrator
+				" />
+				<modul delta="dAdministrator" when="Administrator
 				" />
 			</partition>
 		</deltas>
