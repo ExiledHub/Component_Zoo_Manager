@@ -2,11 +2,11 @@ SPL ZooTicun {
 
 	Features = {AdminAnimales, AgregarAnimal, ModificarAnimal, EliminarAnimal,
 	Animal, AnimalDAO, Conexion, Config, Usuario, Visitor, Keeper, Administrator,
-	AgregarKeeper, RemoverKeeper, ModificarZone}
+	AgregarKeeper, RemoverKeeper, ModificarZone, VisitarAnimal}
 
 	Deltas = {dAdminAnimales, dAgregarAnimal, dModificarAnimal, dEliminarAnimal,
 	dAnimal, dAnimalDAO, dConexion, dConfig, dUsuario, dVisitor, dKeeper,
-	dAdministrator, dAgregarKeeper, dRemoverKeeper, dModificarZone}
+	dAdministrator, dAgregarKeeper, dRemoverKeeper, dModificarZone, dVisitarAnimal}
 
 	Constraints {
 	// Put boolean expression representation of the feature model here. 
@@ -26,6 +26,8 @@ SPL ZooTicun {
 		{dAdministrator, dKeeper, dRemoverKeeper} when (RemoverKeeper);
 
 		{dAdministrator, dKeeper, dModificarZone} when (ModificarZone);
+		
+		{dKeeper, dVisitor, dVisitarAnimal} when (VisitarAnimal);
 
 		{dAnimal} when (Animal);
 
@@ -54,5 +56,6 @@ SPL ZooTicun {
 		Administrator = {Administrator, AgregarKeeper, RemoverKeeper, ModificarZone,
 		Keeper};
 	
+		Visitor = {Visitor, VisitarAnimal};
 	}
 }

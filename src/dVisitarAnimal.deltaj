@@ -1,0 +1,15 @@
+delta dVisitarAnimal {
+	modifies org.pl.zooticun.dto.Visitor {
+		adds public void visitarAnimal(String animal){
+			System.out.println("The visitor " + this.name + "is currently visiting the " + animal);
+		}
+		
+	}
+
+	modifies org.pl.zooticun.dto.Keeper {
+		adds public void visitarAnimal(String animal){
+			System.out.println("The Keeper " + this.name + "is currently visiting the" + animal);
+		}
+		
+	}
+}
